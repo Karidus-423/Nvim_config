@@ -4,7 +4,7 @@ return {
 		local notify = require("notify")
 
 		notify.setup({
-			fps = 60,
+			fps = 15,
 			stages = "static",
 		})
 	end,

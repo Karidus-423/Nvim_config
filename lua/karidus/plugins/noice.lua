@@ -6,15 +6,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		"tree-sitter/tree-sitter-regex",
 	},
-	config_1 = function()
-		local notify = require("notify")
-
-		notify.setup({
-			fps = 60,
-			stages = "static",
-		})
-	end,
-	config_2 = function()
+	config = function()
 		local noice = require("noice")
 
 		noice.setup({
