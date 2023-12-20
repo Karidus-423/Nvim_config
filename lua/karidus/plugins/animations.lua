@@ -2,11 +2,20 @@ return {
 	{
 		"echasnovski/mini.animate",
 		event = "VeryLazy",
-		opts = function(_, opts)
-			opts.scroll = {
+		opts = {
+			scroll = {
 				enable = false,
-			}
-		end,
+			},
+			resize = {
+				enable = true,
+			},
+			open = {
+				enable = true,
+			},
+			close = {
+				enable = true,
+			},
+		},
 	},
 	{
 		"edluffy/specs.nvim",
@@ -17,8 +26,14 @@ return {
 				show_jums = true,
 				min_jump = 10,
 				popup = {
-					fader = require("specs").linear_fader,
-					resizer = require("specs").shrink_resizer,
+					fader = require("specs").sin_fader,
+					resizer = function(width, ccol, cnt)
+						if width - cnt > 0 then
+							return { width - cnt, ccol - (width - cnt) / 2 + 1 }
+						else
+							return nil
+						end
+					end,
 				},
 			})
 		end,
