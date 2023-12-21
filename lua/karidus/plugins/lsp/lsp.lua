@@ -76,13 +76,6 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure .ino files
-		lspconfig["arduino_language_server"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = "arduino",
-		})
-
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
