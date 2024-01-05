@@ -5,6 +5,7 @@ return {
 	config = function()
 		local alpha = require("alpha")
 		local dashboard = require("alpha.themes.dashboard")
+		local color = "#45477"
 
 		dashboard.section.header.val = {
 			"⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⣤⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
@@ -39,7 +40,6 @@ return {
 		}
 
 		alpha.setup(dashboard.opts)
-
 		vim.cmd([[autocmd FileType alpha setlocal nofoldenable]])
 	end,
 }

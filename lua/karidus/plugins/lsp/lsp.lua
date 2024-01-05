@@ -70,6 +70,12 @@ return {
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
+		-- Configure yaml server
+		lspconfig["yamlls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure html server
 		lspconfig["html"].setup({
 			capabilities = capabilities,
@@ -105,6 +111,11 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
+		})
+		-- configure markdown server
+		lspconfig["marksman"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 
 		-- configure emmet language server
@@ -145,6 +156,11 @@ return {
 					},
 				},
 			},
+		})
+		-- Configure arduiono settings
+		lspconfig["arduino_language_server"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
 		})
 	end,
 }
