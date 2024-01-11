@@ -6,6 +6,10 @@ local colored_fts = {
 	"js",
 	"tsx",
 	"css",
+	"dosini",
+	"json",
+	"javascript",
+	"yaml",
 }
 
 -- Create Color Code.
@@ -14,19 +18,21 @@ return {
 		"uga-rosa/ccc.nvim",
 		ft = colored_fts,
 		cmd = "CccPick",
-		opts = function()
+		config = function()
+			vim.opt.termguicolors = true
+
 			local ccc = require("ccc")
-
-			-- Use uppercase for hex codes.
-			ccc.output.hex.setup({ uppercase = true })
-			ccc.output.hex_short.setup({ uppercase = true })
-
-			return {
+			local mapping = ccc.mapping
+			ccc.setup({
 				highlighter = {
 					auto_enable = true,
 					filetypes = colored_fts,
 				},
-			}
+			})
+
+			-- Use uppercase for hex codes.
+			ccc.output.hex.setup({ uppercase = true })
+			ccc.output.hex_short.setup({ uppercase = true })
 		end,
 	},
 }

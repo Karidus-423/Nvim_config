@@ -100,6 +100,12 @@ return {
 			on_attach = on_attach,
 		})
 
+		--configure c# server
+		lspconfig["omnisharp"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- configure typescript server with plugin
 		lspconfig["tsserver"].setup({
 			capabilities = capabilities,
@@ -118,18 +124,6 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure prisma orm server
-		lspconfig["prismals"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		-- configure graphql language server
-		lspconfig["graphql"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
 		-- configure markdown server
 		lspconfig["marksman"].setup({
 			capabilities = capabilities,
@@ -158,12 +152,6 @@ return {
 			on_attach = on_attach,
 		})
 
-		-- configure rust server
-		lspconfig["rust_analyzer"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
 		-- configure lua server (with special settings)
 		lspconfig["lua_ls"].setup({
 			capabilities = capabilities,
@@ -183,11 +171,6 @@ return {
 					},
 				},
 			},
-		})
-		-- Configure arduiono settings
-		lspconfig["arduino_language_server"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
 		})
 	end,
 }

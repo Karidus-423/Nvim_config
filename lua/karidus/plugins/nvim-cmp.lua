@@ -4,6 +4,8 @@ return {
 	dependencies = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"hrsh7th/cmp-nvim-lsp",
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 		"rafamadriz/friendly-snippets",
@@ -35,6 +37,9 @@ return {
 				{ name = "buffer" }, -- text of current buffer
 				{ name = "path" }, -- file system paths
 			}),
+			window = {
+				completion = cmp.config.window.bordered(),
+			},
 		})
 	end,
 }
