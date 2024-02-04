@@ -7,6 +7,7 @@ return {
 			triggers = {
 				--Leader triggers
 				{ mode = "n", keys = "<Leader>" },
+				{ mode = "n", keys = "<C-w>" },
 				{ mode = "x", keys = "<Leader>" },
 
 				-- Built-in completion
