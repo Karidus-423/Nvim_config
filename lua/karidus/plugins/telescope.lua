@@ -26,5 +26,6 @@ return {
 		end)
 		vim.keymap.set("n", "<leader>th", builtin.colorscheme, {})
 		vim.keymap.set("n", "<leader>km", builtin.keymaps, {})
+		vim.keymap.set("n", "<leader>bf", builtin.buffers, {})
 	end,
 }
