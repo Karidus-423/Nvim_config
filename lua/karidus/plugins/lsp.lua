@@ -52,20 +52,26 @@ return {
             })
         end,
     },
-
-    -- LSP
-    {
-        "neovim/nvim-lspconfig",
-        cmd = { "LspInfo", "LspInstall", "LspStart" },
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "williamboman/mason-lspconfig.nvim" },
-        },
-        config = function()
-            -- This is where all the LSP shenanigans will live
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.extend_lspconfig()
+	-- LSP
+	{
+		"neovim/nvim-lspconfig",
+		cmd = { "LspInfo", "LspInstall", "LspStart" },
+		event = { "BufReadPre", "BufNewFile" },
+		dependencies = {
+			{ "hrsh7th/cmp-nvim-lsp" },
+			{ "williamboman/mason-lspconfig.nvim" },
+		},
+		config = function()
+			-- This is where all the LSP shenanigans will live
+			local lsp_zero = require("lsp-zero")
+			lsp_zero.extend_lspconfig()
+			lsp_zero.configure("gdscript", {
+				force_setup = true,
+				single_file_support = false,
+				cmd = { "ncat", "127.0.0.1", "6005" },
+				root_dir = require("lspconfig.util").root_pattern("project.godot", ".git"),
+				filetypes = { "gd", "gdscript", "gdscript3" },
+			})
 
             --- if you want to know more about lsp-zero and mason.nvim
             --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
