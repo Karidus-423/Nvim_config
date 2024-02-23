@@ -7,14 +7,26 @@ return {
             load = {
                 ["core.defaults"] = {},
                 ["core.concealer"] = {},
+                ["core.ui"] = {},
+                ["core.keybinds"] = {
+                    config = {
+                        neorg_leader = "<Space>",
+                        hook = function(keybinds)
+                            keybinds.unmap("norg", "n", "<C-u>")
+                        end
+                    },
+                },
                 ["core.dirman"] = {
                     config = {
                         workspaces = {
                             notes = "~/notes",
+                            Portfolio = "~/notes/portfolio",
                         },
                         default_workspace = "notes",
+                        portfolio_workspace = "Portfolio"
                     },
                 },
+                ["core.export"] = {},
             },
         }
 
