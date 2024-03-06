@@ -10,6 +10,7 @@ local colored_fts = {
 	"json",
 	"javascript",
 	"yaml",
+    "swayconfig",
 }
 
 -- Create Color Code.
