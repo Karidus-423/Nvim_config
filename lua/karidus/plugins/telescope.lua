@@ -11,9 +11,16 @@ return {
 				},
 				find_files = {
 					theme = "ivy",
+                    layout_config={
+                        bottom_pane = {
+                            preview_cutoff=50,
+                            width = 1,
+                        }
+                    },
+
 				},
 				diagnostics = {
-					theme = "dropdown",
+					theme = "cursor",
 				},
 			},
 		})
