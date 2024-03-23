@@ -1,7 +1,9 @@
 return {
-    { "windwp/nvim-autopairs",     event = "InsertEnter", opts = {} },
-    { "echasnovski/mini.surround", event = "BufEnter",    opts = {} },
-    { "shaunsingh/nord.nvim",      event = "VeryLazy" },
+    { "windwp/nvim-autopairs",        event = "InsertEnter", opts = {} },
+    { "echasnovski/mini.surround",    event = "BufEnter",    opts = {} },
+    { "shaunsingh/nord.nvim",         event = "VeryLazy" },
+    { "NoahTheDuke/vim-just",         ft = { "just" } },
+    { "IndianBoy42/tree-sitter-just", opts = {} },
     {
         'glacambre/firenvim',
 

@@ -1,97 +1,73 @@
 return {
     {
-        "VonHeikemen/lsp-zero.nvim",
-        branch = "v3.x",
-        lazy = true,
-        config = false,
-        init = function()
-            -- Disable automatic setup, we are doing it manually
-            vim.g.lsp_zero_extend_cmp = 0
-            vim.g.lsp_zero_extend_lspconfig = 0
-        end,
-    },
-    {
-        "williamboman/mason.nvim",
-        lazy = false,
-        config = true,
-    },
-
-    -- Autocompletion
-    {
-        "hrsh7th/nvim-cmp",
-        event = "InsertEnter",
-        dependencies = {
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline",
-            "hrsh7th/cmp-nvim-lsp",
-            "saadparwaiz1/cmp_luasnip",
-            "L3MON4D3/LuaSnip",
-            "rafamadriz/friendly-snippets",
-        },
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
         config = function()
-            -- Here is where you configure the autocompletion settings.
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.extend_cmp()
+            local lsp_zero = require('lsp-zero')
+            lsp_zero.extend_lspconfig()
 
-            -- And you can configure cmp even more, if you want to.
-            local cmp = require("cmp")
-            local cmp_action = lsp_zero.cmp_action()
+            lsp_zero.on_attach(
+                function(client, bufnr)
+                    -- see :help lsp-zero-keybindings
+                    -- to learn the available actions
+                    lsp_zero.default_keymaps({
+                        buffer = bufnr,
+                        preserve_mappings = false
+                    })
+                    -- Custom Keymaps
+                    vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
+                end)
+            lsp_zero.set_sign_icons({
+                error = '',
+                warn = '',
+                hint = '',
+                info = ''
+            })
+            -- here you can setup the language servers
+            local lspconfig = require('lspconfig')
+            -- C/C++
+            lspconfig.clangd.setup({})
+            -- Nix
+            lspconfig.nil_ls.setup({})
+            -- Lua
+            require('neodev').setup()
+            lspconfig.lua_ls.setup({})
+            -- CSS
+            lspconfig.tsserver.setup({})
+            -- Bash
+            lspconfig.bashls.setup({})
+            -- GDScript
+            lspconfig.gdscript.setup({})
+        end
+
+    },
+    { 'neovim/nvim-lspconfig' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            local cmp = require('cmp')
+            local cmp_action = require('lsp-zero').cmp_action()
 
             cmp.setup({
-                formatting = lsp_zero.cmp_format(),
                 mapping = cmp.mapping.preset.insert({
-                    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-                    ["<C-e>"] = cmp.mapping.abort(),
-                    ["<C-Space>"] = cmp.mapping.complete(),
-                    ["<C-u>"] = cmp.mapping.scroll_docs(-4),
-                    ["<C-d>"] = cmp.mapping.scroll_docs(4),
-                    ["<C-f>"] = cmp_action.luasnip_jump_forward(),
-                    ["<C-b>"] = cmp_action.luasnip_jump_backward(),
-                }),
+                    -- `Enter` key to confirm completion
+                    ['<CR>'] = cmp.mapping.confirm({ select = false }),
+
+                    -- Ctrl+Space to trigger completion menu
+                    ['<C-f>'] = cmp.mapping.complete(),
+
+                    -- Scroll up and down in the completion documentation
+                    ['<C-s>'] = cmp.mapping.scroll_docs(-4),
+                    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                })
             })
         end,
     },
-    -- LSP
     {
-        "neovim/nvim-lspconfig",
-        cmd = { "LspInfo", "LspInstall", "LspStart" },
-        event = { "BufReadPre", "BufNewFile" },
-        dependencies = {
-            { "hrsh7th/cmp-nvim-lsp" },
-            { "williamboman/mason-lspconfig.nvim" },
-        },
-        config = function()
-            -- This is where all the LSP shenanigans will live
-            local lsp_zero = require("lsp-zero")
-            lsp_zero.extend_lspconfig()
-            lsp_zero.configure("gdscript", {
-                force_setup = true,
-                single_file_support = false,
-                cmd = { "ncat", "127.0.0.1", "6005" },
-                root_dir = require("lspconfig.util").root_pattern("project.godot", ".git"),
-                filetypes = { "gd", "gdscript", "gdscript3" },
-            })
-
-            --- if you want to know more about lsp-zero and mason.nvim
-            --- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-            lsp_zero.on_attach(function(client, bufnr)
-                -- see :help lsp-zero-keybindings
-                -- to learn the available actions
-                lsp_zero.default_keymaps({ buffer = bufnr })
-            end)
-
-            require("mason-lspconfig").setup({
-                ensure_installed = {},
-                handlers = {
-                    lsp_zero.default_setup,
-                    lua_ls = function()
-                        -- (Optional) Configure lua language server for neovim
-                        local lua_opts = lsp_zero.nvim_lua_ls()
-                        require("lspconfig").lua_ls.setup(lua_opts)
-                    end,
-                },
-            })
-        end,
+        'L3MON4D3/LuaSnip',
+        dependencies = { "rafamadriz/friendly-snippets" },
     },
+    { "folke/neodev.nvim", opts = {} },
+
 }

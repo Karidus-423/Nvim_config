@@ -8,27 +8,31 @@ end
 vim.o.termguicolors = true
 vim.g.colors_name = "sainte-adresse"
 
+
 local colors = {
+    --bg = "#4f4f4f",
+    bg = "none",
     bright_blue = "#6094d3",
     bright_cyan = "#b3dcdd",
     bright_green = "#a5c38d",
     bright_magenta = "#c3a1ce",
-    bright_red = "#ac6767",
+    bright_red = "#c77575",
     bright_white = "#fafaf9",
     bright_yellow = "#cabf44",
     black = "#110f0f",
     cyan = "#6eaeaf",
     orange = "#b37937",
-    green = "#799363",
+    green = "#90bf69",
     yellow = "#E8EDA2",
     blue = "#1f518e",
     cyan900 = "#3e5b5b",
     orange100 = "#fac689",
     purple = "#a780b3",
-    red = "#8d4f4f",
+    red = "#ac6767",
+    grey100 = "#cccccc",
     grey = "#acafad",
-    white = "#F6F6F5",
     grey900 = "#7e8180",
+    white = "#F6F6F5",
     transparent_black = "#1E1F29",
     transparent_blue = "#19272C",
     transparent_green = "#22372c",
@@ -119,7 +123,7 @@ local groups = vim.tbl_extend("error", statusline_groups, {
     Number = { fg = colors.orange },
     Pmenu = { fg = colors.white, bg = colors.transparent_blue },
     PmenuSbar = { bg = colors.transparent_blue },
-    PmenuSel = { fg = colors.cyan, bg = colors.selection },
+    PmenuSel = { fg = colors.cyan, bg = colors.grey900 },
     PmenuThumb = { bg = colors.selection },
     PreCondit = { fg = colors.cyan },
     PreProc = { fg = colors.yellow },
@@ -138,7 +142,7 @@ local groups = vim.tbl_extend("error", statusline_groups, {
     StatusLine = { fg = colors.white, bg = colors.transparent_black },
     StorageClass = { fg = colors.orange100 },
     Structure = { fg = colors.yellow },
-    Substitute = { fg = colors.orange, bg = colors.orange, bold = true },
+    Substitute = { fg = colors.grey100, bg = colors.orange, bold = true },
     Title = { fg = colors.cyan },
     Todo = { fg = colors.purple, bold = true, italic = true },
     Type = { fg = colors.cyan },
@@ -149,6 +153,7 @@ local groups = vim.tbl_extend("error", statusline_groups, {
     VisualNOS = { fg = colors.visual },
     WarningMsg = { fg = colors.yellow },
     WildMenu = { fg = colors.transparent_black, bg = colors.white },
+    NvimInternalError = { fg = colors.transparent_black, bg = colors.red },
 
     -- TreeSitter.
     ["@annotation"] = { fg = colors.yellow },
@@ -333,6 +338,10 @@ local groups = vim.tbl_extend("error", statusline_groups, {
     MsgArea = { fg = colors.cyan },
     MsgSeparator = { fg = colors.cyan900 },
 
+    -- Notifications
+    MiniNotifyNormal = { bg = colors.grey100, fg = colors.blue },
+    MiniNotifyBorder = { bg = colors.grey100, fg = colors.blue, },
+
     -- Winbar styling.
     WinBar = { fg = colors.fg, bg = colors.transparent_black },
     WinBarNC = { bg = colors.transparent_black },
@@ -343,7 +352,7 @@ local groups = vim.tbl_extend("error", statusline_groups, {
     qfPath = { fg = colors.bright_blue },
     qfPosition = { fg = colors.orange100, underline = true },
     QuickFixLine = { italic = true, bg = colors.transparent_red },
-    BqfPreviewRange = { fg = colors.bg, bg = colors.bright_magenta },
+    BqfPreviewRange = { fg = colors.grey900, bg = colors.bright_magenta },
 
     -- Gitsigns.
     GitSignsAdd = { fg = colors.bright_green },
@@ -392,6 +401,9 @@ local groups = vim.tbl_extend("error", statusline_groups, {
 
     -- Overseeer.
     OverseerComponent = { link = "@keyword" },
+
+    -- Neorg
+    ["@neorg.markup.bold"] = { fg = colors.orange },
 })
 
 for group, opts in pairs(groups) do

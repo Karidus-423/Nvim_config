@@ -12,7 +12,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-vim.opt.virtualedit= "block"
+vim.opt.virtualedit = "block"
 vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
