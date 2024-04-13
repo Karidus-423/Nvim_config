@@ -13,6 +13,9 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.virtualedit = "block"
-vim.opt.ignorecase = true
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
+vim.opt.tabstop = 4       -- Set tab width to 4 spaces
+vim.opt.expandtab = false -- Use tabs instead of spaces
+vim.opt.guicursor = "n-c-sm:block,i-ci-:ver25,r-cr-o:hor20,v-ve:hor75"
+vim.g.netrw_banner = 0
