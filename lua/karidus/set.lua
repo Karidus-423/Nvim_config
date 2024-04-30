@@ -15,6 +15,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.virtualedit = "block"
 vim.opt.termguicolors = true
 vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
 vim.opt.tabstop = 4       -- Set tab width to 4 spaces
 vim.opt.expandtab = false -- Use tabs instead of spaces
 vim.opt.guicursor = "n-c-sm:block,i-ci-:ver25,r-cr-o:hor20,v-ve:hor75"
