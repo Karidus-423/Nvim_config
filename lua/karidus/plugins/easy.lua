@@ -1,6 +1,5 @@
 return {
-	{ "windwp/nvim-autopairs",    event = "InsertEnter", opts = {} },
-	{ "chasnovski/mini.surround", event = "BufEnter",    opts = {} },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	{
 		"NoahTheDuke/vim-just",
 		dependencies = { "IndianBoy42/tree-sitter-just" },

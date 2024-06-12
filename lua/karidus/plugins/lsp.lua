@@ -47,6 +47,10 @@ return {
 			lspconfig.bashls.setup({})
 			-- GDScript
 			lspconfig.gdscript.setup({})
+			-- ZLS
+			lspconfig.zls.setup({})
+			--CMAKE
+			lspconfig.cmake.setup({})
 		end
 
 	},

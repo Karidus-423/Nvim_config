@@ -11,6 +11,7 @@ return {
 				typescriptreact = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
+				zig = { "prettier" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
