@@ -26,6 +26,9 @@ return {
 					path = "~/notes",
 				},
 			},
+			ui = {
+				enable = false,
+			},
 			notes_subdir = "./",
 			mappings = {
 				["<leader>op"] = {

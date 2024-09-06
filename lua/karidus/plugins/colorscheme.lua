@@ -13,13 +13,15 @@ return {
 				keywordStyle = { italic = true },
 				statementStyle = { bold = true },
 				typeStyle = {},
-				transparent = false, -- do not set background color
+				transparent = true, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
 				colors = { -- add/modify theme and palette colors
 					palette = {
 						fujiWhite = "#cccccc",
-						sumiInk4 = "#363646"
+						sumiInk4 = "#363646",
+						samuraiRed = "#c77575",
+						peachRed = "#ac6767",
 					},
 					theme = {
 						wave = {},
@@ -36,12 +38,12 @@ return {
 				overrides = function(colors)
 					local theme = colors.theme
 					return {
-						Normal = { bg = "none" },
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none", fg = colors.palette.fujiWhite },
 						FloatTitle = { bg = "none" },
 						LineNr = { fg = colors.palette.fujiWhite },
 						TelescopeBorder = { bg = "none", fg = colors.palette.fujiWhite },
+						MarkviewCode = { bg = "#4f4f4f" },
 
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.

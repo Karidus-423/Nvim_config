@@ -19,10 +19,22 @@ return {
 		vim.keymap.set("n", "q:", builtin.command_history, {})
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
 		vim.keymap.set("n", "gr", builtin.lsp_references, {})
-		vim.keymap.set("n", "<leader>tp", builtin.lsp_type_definitions, {})
+		vim.keymap.set("n", "<leader>ti", vim.lsp.buf.hover, {
+			desc = "Type information."
+		})
+		vim.keymap.set("n", "<leader>td", builtin.lsp_type_definitions, {
+			desc = "Go to type definition."
+		})
 
 
 		require("telescope").setup({
+			defaults = {
+				file_ignore_patterns = {
+					"%.pdf",
+					".git/.*",
+					"%.epub"
+				},
+			},
 			pickers = {
 				colorscheme = {
 					enable_preview = true,
@@ -42,7 +54,6 @@ return {
 							width = 1,
 						}
 					},
-
 				},
 				diagnostics = {
 					theme = "dropdown",

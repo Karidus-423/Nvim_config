@@ -53,8 +53,6 @@ return {
 			lspconfig.cmake.setup({})
 			--Go
 			lspconfig.gopls.setup({})
-			--Markdown
-			lspconfig.marksman.setup({})
 		end
 
 	},
