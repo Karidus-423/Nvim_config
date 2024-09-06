@@ -35,7 +35,7 @@ return {
 			require('neodev').setup()
 			lspconfig.lua_ls.setup({})
 			-- Typescript
-			lspconfig.tsserver.setup({})
+			lspconfig.ts_ls.setup({})
 			-- CSS
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities.textDocument.completion.completionItem.snippetSupport = true
