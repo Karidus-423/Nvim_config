@@ -12,6 +12,7 @@ return {
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				zig = { "prettier" },
+				c = { "clang-format" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
