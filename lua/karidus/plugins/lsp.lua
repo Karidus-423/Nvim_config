@@ -94,7 +94,6 @@ return {
 
 					-- Ctrl+f to trigger completion menu
 					['<C-f>'] = cmp.mapping.complete(),
-
 					-- Documentation
 					['K'] = cmp.mapping(function(fallback)
 						if cmp.visible_docs() then
@@ -109,21 +108,18 @@ return {
 				window = {
 					documentation = cmp.config.window.bordered(),
 				},
+				view = {
+					docs = {
+						auto_open = false,
+					},
+				},
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
-					-- { name = 'vsnip' }, -- For vsnip users.
-					{ name = 'luasnip' }, -- For luasnip users.
-					-- { name = 'ultisnips' }, -- For ultisnips users.
-					-- { name = 'snippy' }, -- For snippy users.
 				}, {
 					{ name = 'buffer' },
 				}),
 			})
 		end,
-	},
-	{
-		'L3MON4D3/LuaSnip',
-		dependencies = { "rafamadriz/friendly-snippets" },
 	},
 	{ "folke/neodev.nvim", ft = { "lua" }, opts = {} },
 
