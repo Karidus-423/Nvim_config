@@ -53,6 +53,8 @@ return {
 			lspconfig.cmake.setup({})
 			--Go
 			lspconfig.gopls.setup({})
+			--Glsls
+			lspconfig.glsl_analyzer.setup({})
 		end
 
 	},
@@ -93,9 +95,16 @@ return {
 					-- Ctrl+f to trigger completion menu
 					['<C-f>'] = cmp.mapping.complete(),
 
-					-- Scroll up and down in the completion documentation
-					['<C-s>'] = cmp.mapping.scroll_docs(-4),
-					['<C-d>'] = cmp.mapping.scroll_docs(4),
+					-- Documentation
+					['K'] = cmp.mapping(function(fallback)
+						if cmp.visible_docs() then
+							cmp.close_docs()
+						elseif cmp.visible() then
+							cmp.open_docs()
+						else
+							fallback()
+						end
+					end),
 				}),
 				window = {
 					documentation = cmp.config.window.bordered(),
