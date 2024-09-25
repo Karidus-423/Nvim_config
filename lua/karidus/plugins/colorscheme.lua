@@ -22,6 +22,7 @@ return {
 						sumiInk4 = "#363646",
 						samuraiRed = "#c77575",
 						peachRed = "#ac6767",
+						autumYellow = "#DCA561",
 					},
 					theme = {
 						wave = {},
@@ -38,13 +39,13 @@ return {
 				overrides = function(colors)
 					local theme = colors.theme
 					return {
+						-- UI
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none", fg = colors.palette.fujiWhite },
 						FloatTitle = { bg = "none" },
 						LineNr = { fg = colors.palette.fujiWhite },
 						TelescopeBorder = { bg = "none", fg = colors.palette.fujiWhite },
 						MarkviewCode = { bg = "#4f4f4f" },
-
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
 						-- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
@@ -53,6 +54,10 @@ return {
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
 						LazyNormal = { bg = "none", fg = colors.palette.fujiWhite },
+						-- Treesitter
+						Function = { fg = colors.palette.autumYellow },
+
+
 
 					}
 				end,
