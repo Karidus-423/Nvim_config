@@ -5,7 +5,6 @@ return {
 		config = function()
 			local lsp_zero = require('lsp-zero')
 			lsp_zero.extend_lspconfig()
-
 			lsp_zero.on_attach(
 				function(client, bufnr)
 					-- see :help lsp-zero-keybindings
@@ -63,7 +62,8 @@ return {
 	{
 		'hrsh7th/nvim-cmp',
 		dependencies = {
-			"onsails/lspkind.nvim"
+			"onsails/lspkind.nvim",
+			"L3MON4D3/LuaSnip"
 		},
 		config = function()
 			local cmp = require('cmp')
@@ -115,6 +115,7 @@ return {
 				},
 				sources = cmp.config.sources({
 					{ name = 'nvim_lsp' },
+					{ name = 'luasnip' },
 				}, {
 					{ name = 'buffer' },
 				}),
