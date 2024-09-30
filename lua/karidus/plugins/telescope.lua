@@ -17,8 +17,9 @@ return {
 		vim.keymap.set("n", "<leader>bf", builtin.buffers, {})
 		vim.keymap.set("n", "mp", builtin.man_pages, {})
 		vim.keymap.set("n", "q:", builtin.command_history, {})
+		vim.keymap.set("n", "q/", builtin.search_history, {})
 		vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
-		vim.keymap.set("n", "gr", builtin.lsp_references, {})
+		vim.keymap.set("n", "grr", builtin.lsp_references, {})
 		vim.keymap.set("n", "<leader>td", builtin.lsp_type_definitions, {
 			desc = "Go to type definition."
 		})
@@ -55,9 +56,6 @@ return {
 				diagnostics = {
 					theme = "dropdown",
 				},
-				lsp_references = {
-					theme = "cursor",
-				},
 				live_grep = {
 					theme = "ivy",
 				},
@@ -83,7 +81,17 @@ return {
 						width = 0.37,
 						prompt_position = 'top',
 					}
-
+				},
+				search_history = {
+					layout_config = {
+						anchor = "NE",
+						height = 0.3,
+						width = 0.37,
+						prompt_position = 'top',
+					}
+				},
+				lsp_references = {
+					theme = "cursor",
 				}
 			},
 		})
