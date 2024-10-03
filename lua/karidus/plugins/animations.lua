@@ -18,7 +18,7 @@ return {
 			},
 			cursor = {
 				enable = true,
-				timing = animate.gen_timing.exponential({
+				timing = animate.gen_timing.quartic({
 					duration = 600, unit = 'total'
 				}),
 				path = animate.gen_path.line({

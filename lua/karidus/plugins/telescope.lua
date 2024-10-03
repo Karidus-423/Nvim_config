@@ -30,7 +30,8 @@ return {
 				file_ignore_patterns = {
 					"%.pdf",
 					".git/.*",
-					"%.epub"
+					"%.epub",
+					"%.note"
 				},
 			},
 			pickers = {
