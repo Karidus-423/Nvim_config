@@ -25,3 +25,4 @@ function _G.toggle_lsp()
 end
 
 vim.api.nvim_set_keymap('n', '<leader>ll', ':call v:lua.toggle_lsp()<CR>', { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pp", [[vipdi<CR><CR><Up><p><CR></p><Esc><Up>pvip=]])

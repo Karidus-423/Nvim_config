@@ -60,10 +60,10 @@ return {
 						--Markdown
 						MarkviewHeading1 = { bg = colors.palette.fujiWhite, fg = "#1f518e" },
 						MarkviewHeading2 = { fg = colors.palette.fujiWhite, bg = "#6eaeaf" },
-						MarkviewHeading3 = { fg = "#898989", bg = "#cabf44" },
+						MarkviewHeading3 = { fg = "#757575", bg = "#cabf44" },
 						MarkviewHeading4 = { fg = colors.palette.fujiWhite, bg = "#a780b3" },
 						MarkviewHeading5 = { fg = colors.palette.fujiWhite, bg = "#ac6767" },
-						MarkviewHeading6 = { fg = "#898989", bg = "#a5c38d" }
+						MarkviewHeading6 = { fg = "#757575", bg = "#a5c38d" }
 
 
 
