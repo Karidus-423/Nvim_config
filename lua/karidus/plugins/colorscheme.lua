@@ -2,7 +2,6 @@ return {
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false,
-		priority = 1000,
 		config = function()
 			-- Default options:
 			require('kanagawa').setup({
@@ -72,6 +71,24 @@ return {
 				end,
 			})
 		end
+	},
+	{
+		"neanias/everforest-nvim",
+		version = false,
+		lazy = false,
+		priority = 1000, -- make sure to load this before all the other start plugins
+		-- Optional; default configuration will be used if setup isn't called.
+		config = function()
+			require("everforest").setup({
+				-- Your config here
+			})
+		end,
+	},
+	{
+		"shaunsingh/nord.nvim",
+		version = false,
+		lazy = false,
+		priority = 1000,
 	},
 	--[[{
 		"Karidus-423/sainte-adresse.nvim",
