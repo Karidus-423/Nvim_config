@@ -33,6 +33,8 @@ return {
 					"%.epub",
 					"%.note"
 				},
+				border = true,
+				borderchars = { "─", "│", "─", "│", "┏", "┓", "┛", "┗" },
 			},
 			pickers = {
 				colorscheme = {
@@ -46,7 +48,10 @@ return {
 					},
 				},
 				fd = {
-					theme = "ivy",
+					path_display = {
+						shorten = 4,
+					},
+					layout_strategy = "vertical",
 					layout_config = {
 						bottom_pane = {
 							preview_cutoff = 50,

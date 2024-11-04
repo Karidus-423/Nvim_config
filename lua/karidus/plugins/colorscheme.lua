@@ -22,6 +22,7 @@ return {
 						samuraiRed = "#c77575",
 						peachRed = "#ac6767",
 						autumYellow = "#DCA561",
+						petal = "#af8794",
 					},
 					theme = {
 						wave = {},
@@ -55,6 +56,8 @@ return {
 						LazyNormal = { bg = "none", fg = colors.palette.fujiWhite },
 						-- Treesitter
 						Function = { fg = colors.palette.autumYellow },
+						["@punctuation.bracket"] = { fg = colors.palette.petal },
+
 
 						--Markdown
 						MarkviewHeading1 = { bg = colors.palette.fujiWhite, fg = "#1f518e" },

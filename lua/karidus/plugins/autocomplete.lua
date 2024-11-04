@@ -14,12 +14,8 @@ return {
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {
+		keymap = { preset = 'default' },
 		blocked_filetypes = { 'markdown' },
-		keymap = {
-			show = '<C-f>',
-			hide = '<C-e>',
-			accept = '<C-y>',
-		},
 		highlight = {
 			use_nvim_cmp_as_default = true,
 		},
