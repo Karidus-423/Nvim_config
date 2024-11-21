@@ -53,10 +53,10 @@ return {
 					},
 					layout_strategy = "vertical",
 					layout_config = {
-						bottom_pane = {
-							preview_cutoff = 50,
-							width = 1,
-						}
+						preview_cutoff = 50,
+						width = vim.o.columns,
+						mirror = true,
+						prompt_position = "top",
 					},
 				},
 				diagnostics = {
@@ -76,6 +76,7 @@ return {
 					layout_config = {
 						bottom_pane = {
 							preview_cutoff = 50,
+							anchor = "N",
 							width = 1,
 						}
 					},
