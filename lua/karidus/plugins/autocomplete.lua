@@ -1,4 +1,5 @@
 return {
+	{
 
 		'saghen/blink.cmp',
 		lazy = false, -- lazy loading handled internally
@@ -15,9 +16,10 @@ return {
 		---@type blink.cmp.Config
 		opts = {
 			keymap = {
-				['<K>'] = { 'show', 'show_documentation', 'hide_documentation' },
+				['<C-y>'] = { 'select_and_accept' },
 				-- disable a keymap from the preset
-				['<C-e>'] = {},
+				['<Up>'] = { 'select_prev', 'fallback' },
+				['<Down>'] = { 'select_next', 'fallback' },
 			},
 			blocked_filetypes = { 'markdown' },
 			highlight = {
@@ -45,3 +47,4 @@ return {
 			end
 		end
 	}
+}
