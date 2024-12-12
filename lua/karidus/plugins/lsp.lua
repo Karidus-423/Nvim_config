@@ -1,63 +1,27 @@
 return {
 	{
-		'VonHeikemen/lsp-zero.nvim',
-		branch = 'v3.x',
+		"neovim/nvim-lspconfig",
+		dependencies = {
+			{ "folke/neodev.nvim", ft = { "lua" }, opts = {} },
+		},
 		config = function()
-			local lsp_zero = require('lsp-zero')
-			lsp_zero.extend_lspconfig()
-			lsp_zero.on_attach(
-				function(client, bufnr)
-					-- see :help lsp-zero-keybindings
-					-- to learn the available actions
-					lsp_zero.default_keymaps({
-						buffer = bufnr,
-						preserve_mappings = false
-					})
-					-- Custom Keymaps
-					vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', { buffer = bufnr })
-				end)
-			lsp_zero.set_sign_icons({
-				error = '',
-				warn = '',
-				hint = '',
-				info = ''
+			local lsp = require("lspconfig")
+			--Lua
+			lsp.lua_ls.setup({})
+			--Clang
+			lsp.clangd.setup({})
+			--Zig
+			lsp.zls.setup({})
+			--Deno
+			lsp.denols.setup({
+				root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
 			})
-			-- here you can setup the language servers
-			local lspconfig = require('lspconfig')
-			-- C/C++
-			lspconfig.clangd.setup({})
-			-- Nix
-			lspconfig.nil_ls.setup({})
-			--Python
-			lspconfig.pyright.setup({})
-			-- Lua
-			require('neodev').setup()
-			lspconfig.lua_ls.setup({})
-			-- Typescript
-			lspconfig.ts_ls.setup({})
-			-- CSS
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-			require 'lspconfig'.cssls.setup {
-				capabilities = capabilities,
-			}
-			-- Bash
-			lspconfig.bashls.setup({})
-			-- GDScript
-			lspconfig.gdscript.setup({})
-			-- ZLS
-			lspconfig.zls.setup({})
-			--CMAKE
-			lspconfig.cmake.setup({})
-			--Go
-			lspconfig.gopls.setup({})
-			--Glsls
-			lspconfig.glsl_analyzer.setup({})
+			--JS/TS
+			lsp.ts_ls.setup({
+				root_dir = lsp.util.root_pattern("package.json"),
+				single_file_support = false
+			})
 		end
-
 	},
-	{ 'neovim/nvim-lspconfig' },
-	{ "folke/neodev.nvim",    ft = { "lua" }, opts = {} },
 
 }

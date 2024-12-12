@@ -23,28 +23,34 @@ return {
 						peachRed = "#ac6767",
 						autumYellow = "#DCA561",
 						petal = "#af8794",
+						waveBlue2 = "#2D4F67",
+						waveAqua2 = "#7AA89F",
+						boatYellow1 = "#938056",
+						boatYellow2 = "#C0A36E",
+						lightBlue = "#A3D4D5",
+						autumGreen = "#76946A",
+						katanaGrey = "#717C7C",
+						katanaBronze = "#757575",
 					},
 					theme = {
-						wave = {},
-						lotus = {},
-						dragon = {},
 						all = { ui = { bg_gutter = "none" } }
 					},
 				},
-				theme = "wave", -- Load "wave" theme when 'background' option is not set
+				theme = "dragon", -- Load "wave" theme when 'background' option is not set
 				background = { -- map the value of 'background' option to a theme
-					dark = "wave", -- try "dragon" !
-					light = "lotus"
+					dark = "dragon", -- try "dragon" !
+					light = "dragon"
 				},
 				overrides = function(colors)
 					local theme = colors.theme
+					local pick = colors.palette
 					return {
 						-- UI
 						NormalFloat = { bg = "none" },
-						FloatBorder = { bg = "none", fg = colors.palette.fujiWhite },
+						FloatBorder = { bg = "none", fg = pick.fujiWhite },
 						FloatTitle = { bg = "none" },
-						LineNr = { fg = colors.palette.fujiWhite },
-						TelescopeBorder = { bg = "none", fg = colors.palette.fujiWhite },
+						LineNr = { fg = pick.fujiWhite },
+						TelescopeBorder = { bg = "none", fg = pick.fujiWhite },
 						MarkviewCode = { bg = "#4f4f4f" },
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
@@ -53,23 +59,19 @@ return {
 
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
-						LazyNormal = { bg = "none", fg = colors.palette.fujiWhite },
+						LazyNormal = { bg = "none", fg = pick.fujiWhite },
 						-- Treesitter
-						Function = { fg = colors.palette.autumYellow },
-						["@punctuation.bracket"] = { fg = colors.palette.petal },
+						Function = { fg = pick.autumYellow },
+						["@punctuation.bracket"] = { fg = pick.petal },
 
 
 						--Markdown
-						MarkviewHeading1 = { bg = colors.palette.fujiWhite, fg = "#1f518e" },
-						MarkviewHeading2 = { fg = colors.palette.fujiWhite, bg = "#6eaeaf" },
-						MarkviewHeading3 = { fg = "#757575", bg = "#cabf44" },
-						MarkviewHeading4 = { fg = colors.palette.fujiWhite, bg = "#a780b3" },
-						MarkviewHeading5 = { fg = colors.palette.fujiWhite, bg = "#ac6767" },
-						MarkviewHeading6 = { fg = "#757575", bg = "#a5c38d" }
-
-
-
-
+						MarkviewHeading1 = { bg = pick.fujiWhite, fg = pick.waveBlue2 },
+						MarkviewHeading2 = { fg = pick.fujiWhite, bg = pick.waveAqua2 },
+						MarkviewHeading3 = { fg = pick.fujiWhite, bg = pick.boatYellow1 },
+						MarkviewHeading4 = { fg = pick.katanaBronze, bg = pick.boatYellow2 },
+						MarkviewHeading5 = { fg = pick.katanaBronze, bg = pick.lightBlue },
+						MarkviewHeading6 = { fg = pick.fujiWhite, bg = pick.autumGreen }
 					}
 				end,
 			})
