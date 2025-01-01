@@ -6,13 +6,13 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				rust = { "rustfmt" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
 				markdown = { "prettier" },
 				lua = { "stylua" },
 				zig = { "prettier" },
 				c = { "clang-format" },
+				kotlin = { "ktfmt" },
 			},
 			format_on_save = {
 				lsp_fallback = true,

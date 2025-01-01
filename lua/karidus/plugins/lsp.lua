@@ -21,6 +21,38 @@ return {
 				root_dir = lsp.util.root_pattern("package.json"),
 				single_file_support = false
 			})
+			--Java
+			lsp.jdtls.setup({})
+			--Kotlin
+			lsp.kotlin_language_server.setup({})
+
+			vim.diagnostic.config({
+				signs = {
+					text = {
+						[vim.diagnostic.severity.ERROR] = '',
+						[vim.diagnostic.severity.WARN] = '',
+						[vim.diagnostic.severity.HINT] = '⚑',
+						[vim.diagnostic.severity.INFO] = '󰙎',
+					},
+				},
+				float = {
+					--focusable = true,
+					style = "minimal",
+					border = "single",
+					header = "",
+					prefix = "",
+					source = true,
+				},
+				jump = {
+					float = { border = 'single' },
+				},
+			})
+
+			vim.keymap.set('n', 'K',
+				function()
+					vim.lsp.buf.hover({ border = "single" })
+				end
+			)
 		end
 	},
 

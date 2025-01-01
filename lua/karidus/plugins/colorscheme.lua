@@ -49,7 +49,7 @@ return {
 						NormalFloat = { bg = "none" },
 						FloatBorder = { bg = "none", fg = pick.fujiWhite },
 						FloatTitle = { bg = "none" },
-						LineNr = { fg = pick.fujiWhite },
+						LineNr = { fg = pick.katanaGrey },
 						TelescopeBorder = { bg = "none", fg = pick.fujiWhite },
 						MarkviewCode = { bg = "#4f4f4f" },
 						-- Save an hlgroup with dark background and dimmed foreground
