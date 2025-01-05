@@ -47,12 +47,6 @@ return {
 					float = { border = 'single' },
 				},
 			})
-
-			vim.keymap.set('n', 'K',
-				function()
-					vim.lsp.buf.hover({ border = "single" })
-				end
-			)
 		end
 	},
 

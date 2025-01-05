@@ -26,3 +26,5 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>m', ':Man <CR>', { silent = true, noremap = true })
 vim.api.nvim_set_keymap('n', '<leader>ll', ':call v:lua.toggle_lsp()<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
+vim.keymap.set('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
