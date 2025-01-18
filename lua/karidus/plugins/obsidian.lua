@@ -13,12 +13,10 @@ return {
 	dependencies = {
 		-- Required.
 		"nvim-lua/plenary.nvim",
-		"hrsh7th/nvim-cmp",
 		"nvim-telescope/telescope.nvim",
 		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
-		vim.opt.conceallevel = 1
 		require("obsidian").setup({
 			workspaces = {
 				{
@@ -33,9 +31,6 @@ return {
 			mappings = {
 				["<leader>op"] = {
 					action = function()
-						local open_message = "Opened " .. vim.fn.bufname()
-						local open_filename = MiniNotify.add(open_message, 'INFO', 'Character')
-						vim.defer_fn(function() MiniNotify.remove(open_filename) end, 3000)
 						vim.cmd("ObsidianOpen")
 					end,
 					opts = { buffer = true },

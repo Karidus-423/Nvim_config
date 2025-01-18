@@ -12,6 +12,8 @@ return {
 			lsp.clangd.setup({})
 			--Zig
 			lsp.zls.setup({})
+			--Go
+			lsp.gopls.setup({})
 			--Deno
 			lsp.denols.setup({
 				root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
@@ -26,6 +28,7 @@ return {
 			--Kotlin
 			lsp.kotlin_language_server.setup({})
 
+			--General LSP Settings
 			vim.diagnostic.config({
 				signs = {
 					text = {
@@ -36,8 +39,6 @@ return {
 					},
 				},
 				float = {
-					--focusable = true,
-					style = "minimal",
 					border = "single",
 					header = "",
 					prefix = "",
@@ -47,7 +48,11 @@ return {
 					float = { border = 'single' },
 				},
 			})
+			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+				vim.lsp.handlers.hover, {
+					border = "single"
+				}
+			)
 		end
 	},
-
 }
