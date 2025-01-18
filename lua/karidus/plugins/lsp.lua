@@ -27,6 +27,8 @@ return {
 			lsp.jdtls.setup({})
 			--Kotlin
 			lsp.kotlin_language_server.setup({})
+			--Go
+			lsp.gopls.setup({})
 
 			--General LSP Settings
 			vim.diagnostic.config({
