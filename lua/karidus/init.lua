@@ -1,4 +1,4 @@
-require("karidus.remap")
+require("karidus.keymap")
 require("karidus.lazy")
 require("karidus.set")
 require("karidus.test-lsp")

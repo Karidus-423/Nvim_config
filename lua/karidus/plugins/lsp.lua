@@ -18,11 +18,6 @@ return {
 			lsp.denols.setup({
 				root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
 			})
-			--JS/TS
-			lsp.ts_ls.setup({
-				root_dir = lsp.util.root_pattern("package.json"),
-				single_file_support = false
-			})
 			--Java
 			lsp.jdtls.setup({})
 			--Kotlin

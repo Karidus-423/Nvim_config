@@ -5,23 +5,48 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>pf", builtin.fd, {})
-		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
-		vim.keymap.set("n", "<leader>dn", builtin.diagnostics, {})
-		vim.keymap.set("n", "<leader>pl", builtin.live_grep, {})
-		vim.keymap.set("n", "<leader>ps", function()
-			builtin.grep_string({ search = vim.fn.input("Grep > ") })
-		end)
-		vim.keymap.set("n", "<leader>th", builtin.colorscheme, {})
-		vim.keymap.set("n", "<leader>km", builtin.keymaps, {})
-		vim.keymap.set("n", "<leader>bf", builtin.buffers, {})
-		vim.keymap.set("n", "mp", builtin.man_pages, {})
-		vim.keymap.set("n", "q:", builtin.command_history, {})
-		vim.keymap.set("n", "q/", builtin.search_history, {})
-		vim.keymap.set("n", "gd", builtin.lsp_definitions, {})
-		vim.keymap.set("n", "grr", builtin.lsp_references, {})
-		vim.keymap.set("n", "<leader>td", builtin.lsp_type_definitions, {
-			desc = "Go to type definition."
+		vim.keymap.set("n", "<leader>pf", builtin.fd, {
+			desc = "Pick files.",
+		})
+		vim.keymap.set("n", "<leader>pg", builtin.git_files, {
+			desc = "Pick git files.",
+		})
+		vim.keymap.set("n", "<leader>dn", builtin.diagnostics, {
+			desc = "Show all diagnostics.",
+		})
+		vim.keymap.set("n", "<leader>pl", builtin.live_grep, {
+			desc = "Run live grep.",
+		})
+		vim.keymap.set("n", "<leader>ps",
+			function()
+				builtin.grep_string({ search = vim.fn.input("Grep > ") })
+			end,
+			{
+				desc = "Pick grep output."
+			})
+		vim.keymap.set("n", "<leader>th", builtin.colorscheme, {
+			desc = "Show colorschemes.",
+		})
+		vim.keymap.set("n", "<leader>km", builtin.keymaps, {
+			desc = "Show all keymaps.",
+		})
+		vim.keymap.set("n", "<leader>bf", builtin.buffers, {
+			desc = "Pick buffers.",
+		})
+		vim.keymap.set("n", "mp", builtin.man_pages, {
+			desc = "Open man page."
+		})
+		vim.keymap.set("n", "q:", builtin.command_history, {
+			desc = "Show cmd history.",
+		})
+		vim.keymap.set("n", "q/", builtin.search_history, {
+			desc = "Show search history.",
+		})
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, {
+			desc = "Show lsp definitions."
+		})
+		vim.keymap.set("n", "grr", builtin.lsp_references, {
+			desc = "Show lsp references."
 		})
 
 
@@ -42,21 +67,19 @@ return {
 					theme = "dropdown",
 					layout_config = {
 						bottom_pane = {
-							preview_cutoff = 50,
+							preview_cutoff = 10,
 							width = 1,
-						}
+						},
 					},
 				},
 				fd = {
-					path_display = {
-						shorten = 4,
-					},
-					layout_strategy = "vertical",
+					theme = "ivy",
 					layout_config = {
-						preview_cutoff = 50,
-						width = vim.o.columns,
-						mirror = true,
-						prompt_position = "top",
+						bottom_pane = {
+							preview_cutoff = 50,
+							anchor = "N",
+							width = 1,
+						}
 					},
 				},
 				diagnostics = {
@@ -66,7 +89,7 @@ return {
 					theme = "ivy",
 				},
 				keymaps = {
-					theme = "dropdown"
+					theme = "dropdown",
 				},
 				lsp_type_definitions = {
 					theme = "cursor"
@@ -85,15 +108,15 @@ return {
 					layout_config = {
 						anchor = "SE",
 						height = 0.3,
-						width = 0.37,
+						width = 0.6,
 						prompt_position = 'top',
 					}
 				},
 				search_history = {
 					layout_config = {
-						anchor = "NE",
+						anchor = "SE",
 						height = 0.3,
-						width = 0.37,
+						width = vim.o.columns * 0.6,
 						prompt_position = 'top',
 					}
 				},

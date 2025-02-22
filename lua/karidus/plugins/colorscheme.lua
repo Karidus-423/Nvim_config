@@ -11,7 +11,7 @@ return {
 				functionStyle = {},
 				keywordStyle = { italic = true },
 				statementStyle = { bold = true },
-				typeStyle = {},
+				typeStyle = { bold = true },
 				transparent = true, -- do not set background color
 				dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 				terminalColors = true, -- define vim.g.terminal_color_{0,17}
@@ -50,8 +50,15 @@ return {
 						FloatBorder = { bg = "none", fg = pick.fujiWhite },
 						FloatTitle = { bg = "none" },
 						LineNr = { fg = pick.katanaGrey },
-						TelescopeBorder = { bg = "none", fg = pick.fujiWhite },
 						MarkviewCode = { bg = "#4f4f4f" },
+						Pmenu = { fg = pick.sumiInk4, bg = pick.katanaGrey },
+						PmenuSel = { fg = pick.sumiInk4, bg = pick.boatYellow2 },
+						PmenuThumb = { bg = pick.boatYellow1 },
+						PmenuSbar = { fg = pick.petal, bg = pick.katanaGrey },
+						PmenuExtra = { fg = pick.petal, bg = pick.katanaGrey },
+						BlinkCmpMenuBorder = { fg = pick.petal, bg = pick.katanaGrey },
+						BlinkCmpLabel = { fg = pick.sumiInk4, },
+
 						-- Save an hlgroup with dark background and dimmed foreground
 						-- so that you can use it where your still want darker windows.
 						-- E.g.: autocmd TermOpen * setlocal winhighlight=Normal:NormalDark
@@ -60,12 +67,12 @@ return {
 						-- Popular plugins that open floats will link to NormalFloat by default;
 						-- set their background accordingly if you wish to keep them dark and borderless
 						LazyNormal = { bg = "none", fg = pick.fujiWhite },
-						-- Treesitter
-						Function = { fg = pick.autumYellow },
-						["@punctuation.bracket"] = { fg = pick.petal },
 
+						--Telescope
+						TelescopeBorder = { bg = "none", fg = pick.boatYellow2 },
+						TelescopeTitle = { fg = pick.petal, bold = true },
 
-						--Markdown
+						--Markview
 						MarkviewHeading1 = { bg = pick.fujiWhite, fg = pick.waveBlue2 },
 						MarkviewHeading2 = { fg = pick.fujiWhite, bg = pick.waveAqua2 },
 						MarkviewHeading3 = { fg = pick.fujiWhite, bg = pick.boatYellow1 },

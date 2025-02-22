@@ -53,6 +53,7 @@ return {
 		ensure_installed = {
 			"bash",
 			"c",
+			"make",
 			"cpp",
 			"diff",
 			"go",
@@ -76,6 +77,7 @@ return {
 			"vim",
 			"vimdoc",
 			"yaml",
+			"zig",
 		},
 		incremental_selection = {
 			enable = true,
