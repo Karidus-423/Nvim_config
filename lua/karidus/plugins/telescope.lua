@@ -33,6 +33,9 @@ return {
 		vim.keymap.set("n", "<leader>bf", builtin.buffers, {
 			desc = "Pick buffers.",
 		})
+		vim.keymap.set("n", "<leader>hl", builtin.highlights, {
+			desc = "Show highlights.",
+		})
 		vim.keymap.set("n", "mp", builtin.man_pages, {
 			desc = "Open man page."
 		})
