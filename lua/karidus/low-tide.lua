@@ -14,6 +14,7 @@ local palette = {
 	japanese_indigo = "#294C3F",
 	ebony = "#59615C",
 	outer_space = "#303E37",
+	idk = "#D4DEC2",
 }
 
 vim.api.nvim_set_hl(0, "Normal",
@@ -79,6 +80,12 @@ vim.api.nvim_set_hl(0, "DiagnosticError",
 vim.api.nvim_set_hl(0, "DiagnosticWarn",
 	{ background = "None", foreground = palette.bronze })
 vim.api.nvim_set_hl(0, "DiagnosticInfo",
+	{ background = "None", foreground = palette.cadet })
+vim.api.nvim_set_hl(0, "@diff.minus",
+	{ background = "None", foreground = palette.english_lavender })
+vim.api.nvim_set_hl(0, "@diff.plus",
+	{ background = "None", foreground = palette.bronze })
+vim.api.nvim_set_hl(0, "@diff.delta",
 	{ background = "None", foreground = palette.cadet })
 vim.api.nvim_set_hl(0, "ErrorMsg",
 	{ background = "None", foreground = palette.english_lavender })

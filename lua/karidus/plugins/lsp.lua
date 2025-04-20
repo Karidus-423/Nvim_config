@@ -1,32 +1,11 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = {
-			{ "folke/neodev.nvim", ft = { "lua" }, opts = {} },
-		},
 		config = function()
-			local lsp = require("lspconfig")
 			--Lua
-			lsp.lua_ls.setup({})
-			--Clang
-			lsp.clangd.setup({})
-			--Zig
-			lsp.zls.setup({})
-			--Go
-			lsp.gopls.setup({})
-			--Deno
-			lsp.denols.setup({
-				root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
-			})
-			--Java
-			lsp.jdtls.setup({})
-			--Kotlin
-			lsp.kotlin_language_server.setup({})
-			--Go
-			lsp.gopls.setup({})
-			--GDScript
-			lsp.gdscript.setup({})
-
+			vim.lsp.enable('lua_ls')
+			--C/C++
+			vim.lsp.enable('clangd')
 			--General LSP Settings
 			vim.diagnostic.config({
 				signs = {
@@ -52,6 +31,17 @@ return {
 					border = "single"
 				}
 			)
+			vim.api.nvim_create_autocmd('LspAttach', {
+				callback = function(event)
+					vim.keymap.set('n', 'K', function()
+						vim.lsp.buf.hover {
+							max_height = 20,
+							max_width = 50,
+							border = 'single',
+						}
+					end, { buffer = event.buf })
+				end,
+			})
 		end
 	},
 }
