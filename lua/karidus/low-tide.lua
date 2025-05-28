@@ -1,20 +1,18 @@
 --COLORSCHEME: LOW-TIDE
 vim.g.colors_name = "low-tide"
 local palette = {
-	silver_sand = "#BFC1C2",
-	roman_silver = "#869193",
-	artichoke = "#9E9A7A",
-	bronze = "#B19148",
-	axolotl = "#77855E",
-	slate_gray = "#718999",
-	xanadu = "#6a877a",
-	english_lavender = "#a68192",
-	feldgrau = "#3F6152",
-	cadet = "#556875",
-	japanese_indigo = "#294C3F",
+	silver_sand = "#717B71",
+	roman_silver = "#666f70",
+	artichoke = "#55615E",
+	bronze = "#5E604C",
+	slate_gray = "#606768",
+	cadet = "#5b6b75",
+	english_lavender = "#755b5b",
 	ebony = "#59615C",
 	outer_space = "#303E37",
-	idk = "#D4DEC2",
+	xanadu = "#4e635a",
+	-- xanadu = "#6a877a",
+	feldgrau = "#3F6152",
 }
 
 vim.api.nvim_set_hl(0, "Normal",
@@ -30,13 +28,13 @@ vim.api.nvim_set_hl(0, "Cursor",
 vim.api.nvim_set_hl(0, "Conceal",
 	{ background = "None", foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "Constant",
-	{ background = "None", foreground = palette.axolotl })
+	{ background = "None", foreground = palette.xanadu })
 vim.api.nvim_set_hl(0, "Comment",
 	{ background = "None", foreground = palette.ebony })
 vim.api.nvim_set_hl(0, "Delimiter",
 	{ background = "None", foreground = palette.artichoke })
 vim.api.nvim_set_hl(0, "String",
-	{ background = "None", foreground = palette.axolotl })
+	{ background = "None", foreground = palette.xanadu })
 vim.api.nvim_set_hl(0, "@variable",
 	{ background = "None", foreground = palette.roman_silver })
 vim.api.nvim_set_hl(0, "Operator",
@@ -50,7 +48,7 @@ vim.api.nvim_set_hl(0, "Special",
 vim.api.nvim_set_hl(0, "Type",
 	{ background = "None", foreground = palette.slate_gray })
 vim.api.nvim_set_hl(0, "Function",
-	{ background = "None", foreground = palette.shadow })
+	{ background = "None", foreground = palette.bronze })
 vim.api.nvim_set_hl(0, "Visual",
 	{ background = palette.feldgrau, foreground = palette.slate_gray })
 vim.api.nvim_set_hl(0, "Question",
@@ -108,8 +106,8 @@ vim.api.nvim_set_hl(0, "MarkviewHeading4",
 vim.api.nvim_set_hl(0, "MarkviewHeading5",
 	{ background = palette.outer_space, foreground = palette.silver_sand })
 vim.api.nvim_set_hl(0, "MarkviewHeading6",
-	{ background = palette.outer_space, foreground = palette.axolotl })
+	{ background = palette.outer_space, foreground = palette.xanadu })
 vim.api.nvim_set_hl(0, "@markup.strong",
 	{ background = "None", foreground = palette.slate_gray, bold = true })
 vim.api.nvim_set_hl(0, "@markup.italic",
-	{ background = "None", foreground = palette.axolotl, italic = true })
+	{ background = "None", foreground = palette.xanadu, italic = true })

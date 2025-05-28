@@ -2,10 +2,18 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
-			--Lua
-			vim.lsp.enable('lua_ls')
 			--C/C++
 			vim.lsp.enable('clangd')
+			--Lua
+			vim.lsp.enable('lua_ls')
+			--Zig
+			vim.lsp.enable('zls')
+			--JS/TS
+			vim.lsp.enable('denols')
+			--HTML
+			vim.lsp.enable('html')
+			--GDScript
+			vim.lsp.enable('gdscript')
 			--General LSP Settings
 			vim.diagnostic.config({
 				signs = {
