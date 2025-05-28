@@ -1,18 +1,18 @@
 --COLORSCHEME: LOW-TIDE
 vim.g.colors_name = "low-tide"
 local palette = {
-	silver_sand = "#717B71",
-	roman_silver = "#666f70",
-	artichoke = "#55615E",
-	bronze = "#5E604C",
-	slate_gray = "#606768",
-	cadet = "#5b6b75",
-	english_lavender = "#755b5b",
-	ebony = "#59615C",
-	outer_space = "#303E37",
+	bronze = "#727358",
+	slate_gray = "#4e635a",
+	cadet = "#4e5f63",
+	english_lavender = "#634e4e",
 	xanadu = "#4e635a",
-	-- xanadu = "#6a877a",
+	silver_sand = "#717F71",
+	roman_silver = "#737f7f",
+	artichoke = "#615f3b",
+	comments = "#4e555c",
+	outer_space = "#303E37",
 	feldgrau = "#3F6152",
+	-- xanadu = "#6a877a",
 }
 
 vim.api.nvim_set_hl(0, "Normal",
@@ -24,13 +24,13 @@ vim.api.nvim_set_hl(0, "NormalFloat",
 vim.api.nvim_set_hl(0, "FloatBorder",
 	{ background = "None", foreground = "None" })
 vim.api.nvim_set_hl(0, "Cursor",
-	{ background = palette.feldgrau, foreground = palette.artichoke })
+	{ background = palette.feldgrau, foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "Conceal",
 	{ background = "None", foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "Constant",
 	{ background = "None", foreground = palette.xanadu })
 vim.api.nvim_set_hl(0, "Comment",
-	{ background = "None", foreground = palette.ebony })
+	{ background = "None", foreground = palette.comments })
 vim.api.nvim_set_hl(0, "Delimiter",
 	{ background = "None", foreground = palette.artichoke })
 vim.api.nvim_set_hl(0, "String",
@@ -42,7 +42,7 @@ vim.api.nvim_set_hl(0, "Operator",
 vim.api.nvim_set_hl(0, "Identifier",
 	{ background = "None", foreground = palette.roman_silver })
 vim.api.nvim_set_hl(0, "Statement",
-	{ background = "None", foreground = palette.xanadu })
+	{ background = "None", foreground = palette.cadet })
 vim.api.nvim_set_hl(0, "Special",
 	{ background = "None", foreground = palette.artichoke })
 vim.api.nvim_set_hl(0, "Type",
@@ -50,23 +50,23 @@ vim.api.nvim_set_hl(0, "Type",
 vim.api.nvim_set_hl(0, "Function",
 	{ background = "None", foreground = palette.bronze })
 vim.api.nvim_set_hl(0, "Visual",
-	{ background = palette.feldgrau, foreground = palette.slate_gray })
+	{ background = palette.feldgrau, foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "Question",
 	{ background = "None", foreground = palette.slate_gray })
 vim.api.nvim_set_hl(0, "Directory",
 	{ background = "None", foreground = palette.slate_gray })
 vim.api.nvim_set_hl(0, "LineNR",
-	{ background = "None", foreground = palette.ebony })
+	{ background = "None", foreground = palette.comments })
 vim.api.nvim_set_hl(0, "ColorColumn",
 	{ background = palette.outer_space, foreground = "None" })
 vim.api.nvim_set_hl(0, "MatchParen",
 	{ background = "None", foreground = palette.silver_sand })
 vim.api.nvim_set_hl(0, "Pmenu",
-	{ background = palette.ebony, foreground = "None" })
+	{ background = palette.outer_space, foreground = palette.bronze })
 vim.api.nvim_set_hl(0, "PmenuKind",
-	{ background = palette.ebony, foreground = "None" })
+	{ background = palette.outer_space, foreground = "None" })
 vim.api.nvim_set_hl(0, "PmenuSel",
-	{ background = palette.feldgrau, foreground = "None" })
+	{ background = palette.feldgrau, foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "IncSearch",
 	{ background = palette.cadet, foreground = "None" })
 vim.api.nvim_set_hl(0, "Title",
@@ -111,3 +111,12 @@ vim.api.nvim_set_hl(0, "@markup.strong",
 	{ background = "None", foreground = palette.slate_gray, bold = true })
 vim.api.nvim_set_hl(0, "@markup.italic",
 	{ background = "None", foreground = palette.xanadu, italic = true })
+
+vim.api.nvim_set_hl(0, "MiniHipatternsTodo",  --TODO
+	{ background = palette.cadet, foreground = palette.bronze, italic = true })
+vim.api.nvim_set_hl(0, "MiniHipatternsNote",  --NOTE
+	{ background = palette.xanadu, foreground = palette.bronze, italic = true })
+vim.api.nvim_set_hl(0, "MiniHipatternsFixme", --FIXME
+	{ background = palette.english_lavender, foreground = palette.bronze, italic = true })
+vim.api.nvim_set_hl(0, "MiniHipatternsHack",  --HACK
+	{ background = palette.artichoke, foreground = palette.bronze, italic = true })
