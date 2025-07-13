@@ -41,6 +41,8 @@ return {
 			vim.lsp.enable('html')
 			--GDScript
 			vim.lsp.enable('gdscript')
+			--Typst
+			vim.lsp.enable('tinymist')
 			--General LSP Settings
 			vim.diagnostic.config({
 				signs = {
