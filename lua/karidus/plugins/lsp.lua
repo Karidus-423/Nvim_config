@@ -35,6 +35,8 @@ return {
 
 			--Zig
 			vim.lsp.enable('zls')
+			--Go
+			vim.lsp.enable('gopls')
 			--JS/TS
 			vim.lsp.enable('denols')
 			--HTML
