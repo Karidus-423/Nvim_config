@@ -1,16 +1,11 @@
--- local client = vim.lsp.start_client {
--- 	name = "serpentine",
--- 	cmd = { "/home/kennett/personal/serpentine/main" }
--- }
---
--- if not client then
--- 	vim.notify("Bad client start.")
--- 	return
--- end
---
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "markdown",
--- 	callback = function()
--- 		vim.lsp.buf_attach_client(0, client)
--- 	end
--- })
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	pattern = "*.bsq",
+	callback = function()
+		vim.bo.filetype = "bsq" -- assign a filetype (optional but useful)
+		vim.lsp.start({
+			name = 'bsqls',
+			cmd = { '/home/karidus/personal/bsqls/main' },
+			root_dir = vim.fs.root(0, { ".bsq" }) or vim.fn.getcwd()
+		})
+	end
+})

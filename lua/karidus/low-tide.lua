@@ -68,7 +68,7 @@ vim.api.nvim_set_hl(0, "PmenuKind",
 vim.api.nvim_set_hl(0, "PmenuSel",
 	{ background = palette.feldgrau, foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "IncSearch",
-	{ background = palette.cadet, foreground = "None" })
+	{ background = palette.cadet, foreground = palette.outer_space })
 vim.api.nvim_set_hl(0, "Title",
 	{ background = "None", foreground = palette.artichoke })
 vim.api.nvim_set_hl(0, "PreProc",
