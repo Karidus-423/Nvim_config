@@ -76,14 +76,14 @@ return {
 					},
 				},
 				fd = {
-					theme = "ivy",
+					layout_strategy = "horizontal",
 					layout_config = {
-						bottom_pane = {
-							preview_cutoff = 50,
-							anchor = "N",
-							width = 1,
-						}
-					},
+						height = 0.8,
+						width = 0.9,
+						prompt_position = 'top',
+						preview_cutoff = 10,
+						preview_width = 50,
+					}
 				},
 				diagnostics = {
 					theme = "dropdown",
