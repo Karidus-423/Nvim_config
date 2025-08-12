@@ -94,7 +94,7 @@ vim.api.nvim_set_hl(0, "htmlBold",
 vim.api.nvim_set_hl(0, "htmlBold",
 	{ background = "None", foreground = palette.slate_gray })
 vim.api.nvim_set_hl(0, "MarkviewCode",
-	{ background = palette.outer_space, foreground = "None" })
+	{ background = "None", foreground = "None" })
 vim.api.nvim_set_hl(0, "MarkviewHeading1",
 	{ background = palette.outer_space, foreground = palette.artichoke })
 vim.api.nvim_set_hl(0, "MarkviewHeading2",

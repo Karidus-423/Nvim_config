@@ -5,55 +5,8 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	config = function()
 		local builtin = require("telescope.builtin")
-		vim.keymap.set("n", "<leader>pf", builtin.fd, {
-			desc = "Pick files.",
-		})
-		vim.keymap.set("n", "<leader>pg", builtin.git_files, {
-			desc = "Pick git files.",
-		})
-		vim.keymap.set("n", "<leader>dn", builtin.diagnostics, {
-			desc = "Show all diagnostics.",
-		})
-		vim.keymap.set("n", "<leader>pl", builtin.live_grep, {
-			desc = "Run live grep.",
-		})
-		vim.keymap.set("n", "<leader>ps",
-			function()
-				builtin.grep_string({ search = vim.fn.input("Grep > ") })
-			end,
-			{
-				desc = "Pick grep output."
-			})
-		vim.keymap.set("n", "<leader>th", builtin.colorscheme, {
-			desc = "Show colorschemes.",
-		})
-		vim.keymap.set("n", "<leader>km", builtin.keymaps, {
-			desc = "Show all keymaps.",
-		})
-		vim.keymap.set("n", "<leader>bf", builtin.buffers, {
-			desc = "Pick buffers.",
-		})
-		vim.keymap.set("n", "<leader>hl", builtin.highlights, {
-			desc = "Show highlights.",
-		})
-		vim.keymap.set("n", "mp", builtin.man_pages, {
-			desc = "Open man page."
-		})
-		vim.keymap.set("n", "q:", builtin.command_history, {
-			desc = "Show cmd history.",
-		})
-		vim.keymap.set("n", "q/", builtin.search_history, {
-			desc = "Show search history.",
-		})
-		vim.keymap.set("n", "gd", builtin.lsp_definitions, {
-			desc = "Show lsp definitions."
-		})
-		vim.keymap.set("n", "grr", builtin.lsp_references, {
-			desc = "Show lsp references."
-		})
-
-
-		require("telescope").setup({
+		local telescope = require("telescope")
+		telescope.setup({
 			defaults = {
 				file_ignore_patterns = {
 					"%.pdf",
@@ -76,6 +29,8 @@ return {
 					},
 				},
 				fd = {
+					sorting_strategy = "ascending",
+					selection_strategy = "none",
 					layout_strategy = "horizontal",
 					layout_config = {
 						height = 0.8,
@@ -127,6 +82,53 @@ return {
 					theme = "cursor",
 				}
 			},
+		})
+
+		vim.keymap.set("n", "<leader>pf", builtin.fd, {
+			desc = "Pick files.",
+		})
+		vim.keymap.set("n", "<leader>pg", builtin.git_files, {
+			desc = "Pick git files.",
+		})
+		vim.keymap.set("n", "<leader>dn", builtin.diagnostics, {
+			desc = "Show all diagnostics.",
+		})
+		vim.keymap.set("n", "<leader>pl", builtin.live_grep, {
+			desc = "Run live grep.",
+		})
+		vim.keymap.set("n", "<leader>ps",
+			function()
+				builtin.grep_string({ search = vim.fn.input("Grep > ") })
+			end,
+			{
+				desc = "Pick grep output."
+			})
+		vim.keymap.set("n", "<leader>th", builtin.colorscheme, {
+			desc = "Show colorschemes.",
+		})
+		vim.keymap.set("n", "<leader>km", builtin.keymaps, {
+			desc = "Show all keymaps.",
+		})
+		vim.keymap.set("n", "<leader>bf", builtin.buffers, {
+			desc = "Pick buffers.",
+		})
+		vim.keymap.set("n", "<leader>hl", builtin.highlights, {
+			desc = "Show highlights.",
+		})
+		vim.keymap.set("n", "mp", builtin.man_pages, {
+			desc = "Open man page."
+		})
+		vim.keymap.set("n", "q:", builtin.command_history, {
+			desc = "Show cmd history.",
+		})
+		vim.keymap.set("n", "q/", builtin.search_history, {
+			desc = "Show search history.",
+		})
+		vim.keymap.set("n", "gd", builtin.lsp_definitions, {
+			desc = "Show lsp definitions."
+		})
+		vim.keymap.set("n", "grr", builtin.lsp_references, {
+			desc = "Show lsp references."
 		})
 	end,
 }
