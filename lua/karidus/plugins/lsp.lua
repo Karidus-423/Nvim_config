@@ -12,6 +12,9 @@ return {
 			vim.lsp.enable('gopls')
 			--JS/TS
 			vim.lsp.enable('denols')
+			vim.lsp.config['denols'] = {
+				format = false,
+			}
 			--HTML
 			vim.lsp.enable('html')
 			--GDScript
