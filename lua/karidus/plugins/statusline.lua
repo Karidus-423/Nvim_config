@@ -25,10 +25,10 @@ return {
 			sections = {
 				lualine_a = { 'hostname' },
 				lualine_b = { 'diff', 'diagnostics' },
-				lualine_c = { { 'filename', path = 4 }, 'filesize' },
-				lualine_x = { 'fileformat', { 'filetype', icon_only = true } },
-				lualine_y = {},
-				lualine_z = { 'location' }
+				lualine_c = { { 'filename', path = 1, shortening_target = 50, }, 'filesize' },
+				lualine_x = { 'encoding', { 'filetype', icon_only = true } },
+				lualine_y = { 'branch' },
+				lualine_z = { 'location', 'fileformat' }
 			},
 			inactive_sections = {
 				lualine_a = {},

@@ -8,51 +8,92 @@
 (namespace
   namespace_id: (identifier) @module)
 
-(entity_id) @constant
+; (entity_id) @constant
 (enum_member) @constant
 (none_lit) @constant
 
-(function_call) @function.call
+(function_call
+  function_id: (identifier) @function.call)
 
 (function_signature
-  function_id: (entity_id) @function)
+  function_id: (identifier) @function)
 
-"+" @operator
-"-" @operator
-"*" @operator
-"//" @operator
-"%" @operator
-"||" @operator
-"&&" @operator
-"|" @operator
-"^" @operator
-"&" @operator
-"===" @operator
-"!==" @operator
-"==" @operator
-"!=" @operator
-">" @operator
-">=" @operator
-"<=" @operator
-"==>" @operator
-"<==>" @operator
-"<" @operator
-"<<" @operator
-">>" @operator
 
-"(" @punctuation.bracket
-")" @punctuation.bracket
-"{" @punctuation.bracket
-"}" @punctuation.bracket
+(elist_type
+  elist_type_start: "(|" @type.builtin
+  type_sig: (identifier) @type
+  elist_type_end: "|)"   @type.builtin)
 
-"(|" @punctuation.special
-"|)" @punctuation.special
+(entity
+  entity_id: (identifier) @type)
 
-"$" @punctuation.delimiter
-"." @punctuation.delimiter
-";" @punctuation.delimiter
-"=>" @punctuation.delimiter
-"->" @punctuation.delimiter
+(function_param_signature
+  type_sig: (identifier) @type)
+
+(function_return_parameters
+  type_sig: (identifier) @type)
+
+(field
+  type_sig: (identifier) @type)
+
+(variable_definition
+  type_sig: (identifier) @type)
+
+(entity_definition
+  type_sig: (identifier) @type)
+
+(import
+  type_sig: (identifier) @module)
+
+
+[
+"!"
+"+" 
+"-" 
+"*" 
+"//" 
+"%" 
+"||" 
+"&&" 
+"|" 
+"^" 
+"&" 
+"===" 
+"!==" 
+"==" 
+"!=" 
+">" 
+">=" 
+"<=" 
+"==>" 
+"<==>" 
+"<" 
+"<<" 
+">>" 
+] @operator
+
+[
+"(" 
+")" 
+"{" 
+"}" 
+] @punctuation.bracket
+
+
+(elist
+  elist_start: "(|" @punctuation.special
+  elist_end: "|)" @punctuation.special)
+
+[
+"#"
+"$" 
+"@"
+"." 
+"::"
+";" 
+"=>" 
+"->" 
+] @punctuation.delimeter
 
 (string) @string
 (cstring) @string
@@ -61,38 +102,68 @@
 (num_whole) @number
 (num_float) @number.float
 
-"fn" @statement
-"if" @statement
-"match" @statement
-"let" @statement
-"switch" @statement
+[
+"fn" 
+"if" 
+"match" 
+"switch" 
+"else" 
+] @statement
 
 "return" @keyword.return
+
+[
+"assert" 
+] @keyword.conditional
+
+[
+"ref" 
+"var" 
+"let"
+"const" 
+] @keyword.modifier
+
+"function" @keyword.function
+
+[
+"some" 
+"type" 
+"as" 
+"concept" 
+"declare" 
+"enum" 
+"entity" 
+"ensures" 
+"field" 
+"invariant" 
+"method" 
+"namespace" 
+"of" 
+"provides" 
+"requires" 
+"datatype" 
+"using" 
+"public" 
+] @keyword
 
 ; "recursive?" @keyword
 ; "recursive" @keyword
 ; "action" @keyword
 ; "_debug" @keyword
 ; "abort" @keyword
-"assert" @keyword.conditional
 ; "bsqon" @keyword
 ; "$bsqon" @keyword
 ; "do" @keyword
 ; "elif" @keyword
-"else" @keyword.conditional
 ; "env" @keyword
 ; "fail" @keyword
 ; "implements" @keyword
 ; "ok" @keyword
 ; "option" @keyword
 ; "pred" @keyword
-"ref" @keyword.modifier
 ; "result" @keyword
-"some" @keyword
 ; "self" @keyword
 ; "then" @keyword
-"type" @keyword
-"var" @keyword.modifier
 ; "yield" @keyword
 ; "continue" @keyword
 ; "break" @keyword
@@ -102,25 +173,8 @@
 ; "spec" @keyword
 ; "test" @keyword
 ; "api" @keyword
-"as" @keyword
-"concept" @keyword
-"const" @keyword.modifier
-"declare" @keyword
-"enum" @keyword
-"entity" @keyword
-"ensures" @keyword
-"field" @keyword
-"function" @keyword
-"invariant" @keyword
-"method" @keyword
-"namespace" @keyword
-"of" @keyword
-"provides" @keyword
-"requires" @keyword
 ; "in" @keyword
 ; "task" @keyword
-"datatype" @keyword
-"using" @keyword
 ; "validate" @keyword
 ; "when" @keyword
 ; "event" @keyword
@@ -136,7 +190,6 @@
 ; "private" @keyword
 ; "internal" @keyword
 ; "hidden" @keyword
-"public" @keyword
 ; "sensitive" @keyword
 ; "export" @keyword
 ; "deterministic" @keyword
@@ -144,4 +197,46 @@
 ; "abstract" @keyword
 ; "override" @keyword
 ; "virtual" @keyword
+
+[
+"None"
+"Bool"
+"Nat"
+"Int"
+"BigInt"
+"BigNat"
+"Rational"
+"Float"
+"Decimal"
+"DecimalDegree"
+"LatLongCoordinate"
+"Complex"
+"ByteBuffer"
+"UUIDv4"
+"UUIDv7"
+"SHAContentHash"
+"TZDateTime"
+"TAITime"
+"PlainDate"
+"PlainTime"
+"LogicalTime"
+"ISOTimestamp"
+"DeltaDateTime"
+"DeltaSeconds"
+"DeltaLogicalTime"
+"DeltaISOTimestamp"
+"CChar"
+"UnicodeChar"
+"CCharBuffer"
+"UnicodeCharBuffer"
+"String"
+"CString"
+"Regex"
+"CRegex"
+"PathRegex"
+"Path"
+"PathItem"
+"Glob"
+(list)
+] @type.builtin
 
