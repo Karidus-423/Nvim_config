@@ -1,50 +1,44 @@
 (identifier) @variable
 (this) @variable.builtin
-; "_" @variable.builtin
 
 (true_lit) @boolean
 (false_lit) @boolean
 
 (namespace
   namespace_id: (identifier) @module)
+(preprocess_statement
+  preprocess_tag: (identifier) @module)
 
-; (entity_id) @constant
 (enum_member) @constant
 (none_lit) @constant
 
-(function_call
-  function_id: (identifier) @function.call)
+(custom_type) @type
+
+(string) @string
+(cstring) @string
+
+(num_whole) @number
+(num_float) @number.float
+
+(comment) @comment
 
 (function_signature
-  function_id: (identifier) @function)
+  function_id: (custom_type) @function)
 
+
+(namespace_access_expression
+  (custom_type) @module)
+(namespace_access_type
+  (custom_type) @module
+  access_target: (custom_type) @type)
 
 (elist_type
-  elist_type_start: "(|" @type.builtin
-  type_sig: (identifier) @type
-  elist_type_end: "|)"   @type.builtin)
+  "(|" @type
+  "|)" @type)
 
-(entity
-  entity_id: (identifier) @type)
-
-(function_param_signature
-  type_sig: (identifier) @type)
-
-(function_return_parameters
-  type_sig: (identifier) @type)
-
-(field
-  type_sig: (identifier) @type)
-
-(variable_definition
-  type_sig: (identifier) @type)
-
-(entity_definition
-  type_sig: (identifier) @type)
-
-(import
-  type_sig: (identifier) @module)
-
+(type_params
+  (type_start) @type
+  (type_end) @type)
 
 [
 "!"
@@ -80,37 +74,19 @@
 ] @punctuation.bracket
 
 
-(elist
-  elist_start: "(|" @punctuation.special
-  elist_end: "|)" @punctuation.special)
-
 [
 "#"
 "$" 
 "@"
 "." 
 "::"
+":"
+","
 ";" 
 "=>" 
 "->" 
 ] @punctuation.delimeter
 
-(string) @string
-(cstring) @string
-(string_regex) @string.regexp
-
-(num_whole) @number
-(num_float) @number.float
-
-[
-"fn" 
-"if" 
-"match" 
-"switch" 
-"else" 
-] @statement
-
-"return" @keyword.return
 
 [
 "assert" 
@@ -121,9 +97,32 @@
 "var" 
 "let"
 "const" 
+"_debug" 
+"debug" 
+"..."
+"ref"
+"$"
+"public"
+"recursive"
+"recursive?"
+"chktest"
+"errtest"
+"safe"
+"__safe"
+"numeric"
+"__numeric"
+"__internal"
+"__typedeclable"
+"__typebase"
+"keycomparable"
+"__keycomparable"
+"assume_safe"
+"__assume_safe"
 ] @keyword.modifier
 
-"function" @keyword.function
+[
+"function" 
+]@keyword.function
 
 [
 "some" 
@@ -136,6 +135,7 @@
 "ensures" 
 "field" 
 "invariant" 
+"return"
 "method" 
 "namespace" 
 "of" 
@@ -143,14 +143,19 @@
 "requires" 
 "datatype" 
 "using" 
-"public" 
+"abort"
+"Ok" 
+"Fail"
+"if" 
+"match" 
+"switch" 
+"else" 
+"#if"
+"#else"
+"#endif"
 ] @keyword
 
-; "recursive?" @keyword
-; "recursive" @keyword
 ; "action" @keyword
-; "_debug" @keyword
-; "abort" @keyword
 ; "bsqon" @keyword
 ; "$bsqon" @keyword
 ; "do" @keyword
@@ -158,8 +163,6 @@
 ; "env" @keyword
 ; "fail" @keyword
 ; "implements" @keyword
-; "ok" @keyword
-; "option" @keyword
 ; "pred" @keyword
 ; "result" @keyword
 ; "self" @keyword
@@ -167,7 +170,6 @@
 ; "yield" @keyword
 ; "continue" @keyword
 ; "break" @keyword
-; "debug" @keyword
 ; "release" @keyword
 ; "safety" @keyword
 ; "spec" @keyword
@@ -182,8 +184,6 @@
 ; "resource" @keyword
 ; "predicate" @keyword
 ; "softcheck" @keyword
-; "errtest" @keyword
-; "chktest" @keyword
 ; "example" @keyword
 ; "operator" @keyword
 ; "variant" @keyword
@@ -206,7 +206,13 @@
 "BigInt"
 "BigNat"
 "Rational"
+"List"
+"Option"
+"Some"
 "Float"
+"MapEntry"
+"Result"
+"Map"
 "Decimal"
 "DecimalDegree"
 "LatLongCoordinate"
@@ -237,6 +243,5 @@
 "Path"
 "PathItem"
 "Glob"
-(list)
-] @type.builtin
+] @type
 
