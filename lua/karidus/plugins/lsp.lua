@@ -10,7 +10,7 @@ return {
 			vim.lsp.enable('zls')
 			--Go
 			vim.lsp.enable('gopls')
-			--JS/TS
+			--JS/TSlsp
 			vim.lsp.enable('denols')
 			vim.lsp.config['denols'] = {
 				format = false,

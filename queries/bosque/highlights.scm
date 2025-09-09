@@ -16,18 +16,22 @@
 
 (string) @string
 (cstring) @string
+(regex_expression) @regexp
 
 (num_whole) @number
 (num_float) @number.float
 
-(comment) @comment
+(comment) @comment @spell
 
 (function_signature
   function_id: (custom_type) @function)
 
+(function_call
+  function_id: (custom_type) @function)
 
 (namespace_access_expression
   (custom_type) @module)
+
 (namespace_access_type
   (custom_type) @module
   access_target: (custom_type) @type)
@@ -35,6 +39,10 @@
 (elist_type
   "(|" @type
   "|)" @type)
+
+(elist_value
+  "(|" @punctuation.delimeter
+  "|)" @punctuation.delimeter)
 
 (type_params
   (type_start) @type
@@ -64,6 +72,8 @@
 "<" 
 "<<" 
 ">>" 
+"\\/"
+"/\\"
 ] @operator
 
 [
@@ -101,7 +111,6 @@
 "debug" 
 "..."
 "ref"
-"$"
 "public"
 "recursive"
 "recursive?"
@@ -118,6 +127,13 @@
 "__keycomparable"
 "assume_safe"
 "__assume_safe"
+"validate"
+"__validate"
+"private" 
+"__private" 
+"test" 
+"internal"
+"__intrinsic_error"
 ] @keyword.modifier
 
 [
@@ -136,6 +152,7 @@
 "field" 
 "invariant" 
 "return"
+"yield" 
 "method" 
 "namespace" 
 "of" 
@@ -154,49 +171,6 @@
 "#else"
 "#endif"
 ] @keyword
-
-; "action" @keyword
-; "bsqon" @keyword
-; "$bsqon" @keyword
-; "do" @keyword
-; "elif" @keyword
-; "env" @keyword
-; "fail" @keyword
-; "implements" @keyword
-; "pred" @keyword
-; "result" @keyword
-; "self" @keyword
-; "then" @keyword
-; "yield" @keyword
-; "continue" @keyword
-; "break" @keyword
-; "release" @keyword
-; "safety" @keyword
-; "spec" @keyword
-; "test" @keyword
-; "api" @keyword
-; "in" @keyword
-; "task" @keyword
-; "validate" @keyword
-; "when" @keyword
-; "event" @keyword
-; "status" @keyword
-; "resource" @keyword
-; "predicate" @keyword
-; "softcheck" @keyword
-; "example" @keyword
-; "operator" @keyword
-; "variant" @keyword
-; "private" @keyword
-; "internal" @keyword
-; "hidden" @keyword
-; "sensitive" @keyword
-; "export" @keyword
-; "deterministic" @keyword
-; "idempotent" @keyword
-; "abstract" @keyword
-; "override" @keyword
-; "virtual" @keyword
 
 [
 "None"

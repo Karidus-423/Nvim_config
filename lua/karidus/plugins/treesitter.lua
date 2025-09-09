@@ -100,6 +100,8 @@ return {
 	},
 	---@param opts TSConfig
 	config = function(_, opts)
+		vim.bo.filetype = "bsq"
+		vim.bo.filetype = "bsqtest"
 		if type(opts.ensure_installed) == "table" then
 			---@type table<string, boolean>
 			local added = {}
